@@ -1,0 +1,17 @@
+  <%= form_for task do |f| %>
+    <%= f.label :title %>
+    <%= f.text_field :title, placeholder: 'i.e. Buy groceries' %>
+
+    <%= f.label :details %>
+    <%= f.text_field :details, placeholder: 'i.e. Need bread!' %>
+
+    <%# show the completed checkbox only when you edit a task %>
+    <% if params[:action] == 'edit' %>
+      <%= f.label :completed %>
+      <%= f.check_box  :completed %>
+      <% task.completed = true %>
+    <% end %>
+
+
+    <%= f.submit %>
+  <% end %>
